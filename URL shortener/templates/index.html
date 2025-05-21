@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shortener</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔗 URL Shortener</h1>
+    <form method="POST" action="{{ url_for('index') }}">
+        <input type="text" name="long_url" placeholder="Enter the long URL" required>
+        <button type="submit">Shorten URL</button>
+    </form>
+
+    {% if short_url %}
+    <div class="result">
+        <strong>Shortened URL:</strong>
+        <a href="{{ short_url }}" target="_blank">{{ short_url }}</a>
+    </div>
+    {% endif %}
+</body>
+</html>
