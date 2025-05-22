@@ -7,7 +7,7 @@ app = Flask(__name__)
 shortened_urls = {}
 
 def generate_short_url(length=6):
-    chars = string.ascii_letters + string.digits  # ✅ FIXED typo: 'ascill' -> 'ascii'
+    chars = string.ascii_letters + string.digits  
     short_url = "".join(random.choice(chars) for _ in range(length))
     return short_url
 
